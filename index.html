@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="description" content="Track your safe mileage target to stay within your 10,000 mile annual allowance">
+    
+    <!-- iOS PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mileage">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    
+    <title>Mileage Tracker 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container" role="main">
+        <header class="header">
+            <h1>🚗 Mileage Tracker</h1>
+            <p class="subtitle">Your safe mileage for 2026</p>
+        </header>
+        
+        <main class="content">
+            <section class="card main-metric">
+                <h2>Safe Mileage Today</h2>
+                <div class="metric-value" id="safeMileage">--</div>
+                <div class="metric-unit">miles</div>
+            </section>
+            
+            <section class="card" id="statusCard">
+                <div class="status" id="statusMessage"></div>
+            </section>
+            
+            <section class="card">
+                <h2>📊 Today's Stats</h2>
+                <div class="stat-row">
+                    <span class="stat-label">Date:</span>
+                    <span class="stat-value" id="todayDate">--</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Daily Average:</span>
+                    <span class="stat-value" id="dailyAverage">--</span>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>📅 Year Progress</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="yearProgress"></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="daysElapsed">--</div>
+                        <div class="stat-label">Days Elapsed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="daysRemaining">--</div>
+                        <div class="stat-label">Days Remaining</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="card">
+                <h2>💰 Remaining Allowance</h2>
+                <div class="metric-value-small" id="remainingAllowance">--</div>
+                <div class="metric-unit">miles left</div>
+                <p class="hint">Daily limit: <span id="remainingDailyLimit">--</span> miles/day</p>
+            </section>
+            
+            <section class="card summary">
+                <h2>📋 Summary</h2>
+                <div class="summary-text">
+                    <p>Annual Allowance: <strong>10,000 miles</strong></p>
+                    <p>Period: <strong>Jan 1 - Dec 31, 2026</strong></p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed', err));
+        }
+    </script>
+</body>
+</html>
