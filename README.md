@@ -35,7 +35,7 @@ A Progressive Web App to track your safe mileage target for 2026, helping you st
 
 3. Go to your repository Settings → Pages
 4. Under "Source", select "gh-pages" branch
-5. Your PWA will be available at `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+5. Your PWA will be available at `https://sebastiand-cerebras.github.io/cerebras-seb-playground/`
 
 ### Option 2: Using docs folder
 
